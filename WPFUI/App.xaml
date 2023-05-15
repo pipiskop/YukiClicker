@@ -1,0 +1,32 @@
+﻿<Application x:Class="WPFUI.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:WPFUI">
+    <Application.Resources>
+        <ResourceDictionary>
+
+            <!--The base gradient background for the application-->
+            <Style x:Key="ProgramBackground" TargetType="UserControl">
+                <Setter Property="Background" Value="Blue" />
+            </Style>
+
+            <!--Changing the colour of tooltips-->
+            <Style TargetType="{x:Type ToolTip}">
+                <Setter Property="Background" Value="Gray" />
+            </Style>
+
+            <!-- Adding all the resources -->
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary>
+                    <local:Bootstrapper x:Key="Bootstrapper" />
+                </ResourceDictionary>
+                <ResourceDictionary Source="/Styles/Colours.xaml" />
+                <ResourceDictionary Source="/Styles/Fonts.xaml" />
+                <ResourceDictionary Source="/Styles/Buttons.xaml" />
+                <ResourceDictionary Source="/Styles/TextBlocks.xaml" />
+                <ResourceDictionary Source="/Styles/ScrollBar.xaml" />
+                <ResourceDictionary Source="/Styles/Popups.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

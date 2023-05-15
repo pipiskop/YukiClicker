@@ -1,0 +1,31 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!--Colours used throughout the application-->
+    <Color x:Key="LBlue">#FF22BFFF</Color>
+    <Color x:Key="DBlue">#FF0068FF</Color>
+    <Color x:Key="LOrange">#FFFDAF90</Color>
+    <Color x:Key="DOrange">#FFFF824F</Color>
+    <SolidColorBrush x:Key="LOrangeBorder">#FFFDAF90</SolidColorBrush>
+    <SolidColorBrush x:Key="DOrangeBorder">#FFFF5915</SolidColorBrush>
+    <SolidColorBrush x:Key="LBlueBorder">#FF22BFFF</SolidColorBrush>
+    <SolidColorBrush x:Key="DBlueBorder">#FF0068FF</SolidColorBrush>
+
+    <!--The gradient background for the application-->
+    <LinearGradientBrush x:Key="BackGradient" StartPoint="0.5,0" EndPoint="0,1">
+        <GradientStop Color="{StaticResource LBlue}" Offset="0" />
+        <GradientStop Color="{StaticResource DBlue}" Offset="1" />
+    </LinearGradientBrush>
+
+    <!-- Orange gradient (horizontal) -->
+    <LinearGradientBrush x:Key="OrangeGradientH" StartPoint="0,1" EndPoint="0.5,0">
+        <GradientStop Color="{StaticResource DOrange}" Offset="0.4" />
+        <GradientStop Color="{StaticResource LOrange}" Offset="1.4" />
+    </LinearGradientBrush>
+
+    <!-- Orange gradient (vertical) -->
+    <LinearGradientBrush x:Key="OrangeGradientV" StartPoint="0.5,0" EndPoint="0.5,1">
+        <GradientStop Color="{StaticResource DOrange}" Offset="0" />
+        <GradientStop Color="{StaticResource LOrange}" Offset="1" />
+    </LinearGradientBrush>
+</ResourceDictionary>

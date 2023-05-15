@@ -1,0 +1,234 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- Generic button style -->
+    <Style x:Key="GenericButtonStyle" TargetType="{x:Type Button}">
+        <Setter Property="Width" Value="80" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition Height="5" />
+                        </Grid.RowDefinitions>
+                        <Border x:Name="loadButtonsBorder" CornerRadius ="15" Grid.RowSpan="2" Background="#FF6D6B6B" />
+                        <DockPanel>
+                            <ContentPresenter x:Name="loadButtonsPresenter" Content="{TemplateBinding Content}" Margin="0 8 0 0" HorizontalAlignment="Center"
+                                              VerticalAlignment="Center" TextBlock.Foreground="White" />
+                        </DockPanel>
+                        <Rectangle x:Name="loadButtonsRectangle" Fill="{DynamicResource {x:Static SystemColors.GradientActiveCaptionBrushKey}}" Grid.Row="3"  HorizontalAlignment="Left" Width="0" />
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <!--Mouse over trigger-->
+                        <EventTrigger RoutedEvent="MouseEnter">
+                            <EventTrigger.Actions>
+                                <BeginStoryboard>
+                                    <Storyboard Storyboard.TargetName="loadButtonsRectangle" Storyboard.TargetProperty="Width">
+                                        <DoubleAnimation Duration="0:0:0.4" To="80" AccelerationRatio="0.2" DecelerationRatio="0.8" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger.Actions>
+                        </EventTrigger>
+                        <EventTrigger RoutedEvent="MouseLeave">
+                            <EventTrigger.Actions>
+                                <BeginStoryboard>
+                                    <Storyboard Storyboard.TargetName="loadButtonsRectangle" Storyboard.TargetProperty="Width">
+                                        <DoubleAnimation Duration="0:0:0.4" To="0" AccelerationRatio="0.2" DecelerationRatio="0.8" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger.Actions>
+                        </EventTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- Upgrade buying button -->
+    <Style x:Key="BuyButtonStyle" TargetType="{x:Type Button}">
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid Name="buttonGrid">
+                        <Border Name="button" CornerRadius="0 15 15 0" Background="#FF272727" />
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="True">
+                            <Setter TargetName="button" Property="Opacity" Value="1" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="button" Property="Opacity" Value="0.4" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- Upgrade object -->
+    <Style x:Key="UpgradeBorder" TargetType="{x:Type Border}">
+        <Setter Property="CornerRadius" Value="20" />
+        <Setter Property="Margin" Value="2" />
+        <Setter Property="Height" Value="80" />
+        <Setter Property="BorderThickness" Value="2" />
+        <Setter Property="BorderBrush" Value="{StaticResource BackGradient}" />
+        <Setter Property="Background" Value="{StaticResource OrangeGradientH}" />
+    </Style>
+
+    <!-- Smack button style -->
+    <Style x:Key="SmackButtonStyle" TargetType="{x:Type Button}">
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid>
+                        <Ellipse x:Name="borderEllipse" Stretch="UniformToFill" Height="160"
+                                 HorizontalAlignment="Center" VerticalAlignment="Center" >
+                            <Ellipse.Fill>
+                                <ImageBrush ImageSource="/Views/photo_5348328160606931013_y.jpg"/>
+                            </Ellipse.Fill>
+                        </Ellipse>
+
+                        <Ellipse x:Name="smackEllipse" Stretch="UniformToFill" Height="150"
+                                 HorizontalAlignment="Center" VerticalAlignment="Center" >
+                            <Ellipse.Fill>
+                                <ImageBrush ImageSource="/Views/click.jpg"/>
+                            </Ellipse.Fill>
+                        </Ellipse>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <EventTrigger RoutedEvent="MouseEnter">
+                            <EventTrigger.Actions>
+                                <BeginStoryboard>
+                                    <Storyboard Storyboard.TargetName="smackEllipse" Storyboard.TargetProperty="Height">
+                                        <DoubleAnimation To="145" Duration="0:0:0.2"
+                                                            AccelerationRatio="0.7" DecelerationRatio="0.3" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger.Actions>
+                        </EventTrigger>
+                        <EventTrigger RoutedEvent="MouseLeave">
+                            <EventTrigger.Actions>
+                                <BeginStoryboard>
+                                    <Storyboard Storyboard.TargetName="smackEllipse" Storyboard.TargetProperty="Height">
+                                        <DoubleAnimationUsingKeyFrames>
+                                            <LinearDoubleKeyFrame Value="150" KeyTime="0:0:0.1" />
+                                        </DoubleAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger.Actions>
+                        </EventTrigger>
+                        <EventTrigger RoutedEvent="Click">
+                            <EventTrigger.Actions>
+                                <BeginStoryboard>
+                                    <Storyboard Storyboard.TargetName="smackEllipse" Storyboard.TargetProperty="Height">
+                                        <DoubleAnimation Duration="0:0:0.05" To="0" From="140" AutoReverse="True" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger.Actions>
+                        </EventTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- Settings button style -->
+    <Style x:Key="SettingsButtonStyle" TargetType="{x:Type Button}">
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="ToolTip" Value="Settings" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border x:Name="Grid" CornerRadius="20">
+                        <TextBlock x:Name="TextBlock" Text="⚙️"  Opacity="0.7" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <EventTrigger RoutedEvent="MouseEnter">
+                            <EventTrigger.Actions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="TextBlock"
+                                                         Storyboard.TargetProperty="Opacity"
+                                                         To="1" Duration="0:0:0" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger.Actions>
+                        </EventTrigger>
+                        <EventTrigger RoutedEvent="MouseLeave">
+                            <EventTrigger.Actions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="TextBlock"
+                                                         Storyboard.TargetProperty="Opacity"
+                                                         To="0.7" Duration="0:0:0" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger.Actions>
+                        </EventTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- Apple toggle button style -->
+    <Style TargetType="{x:Type ToggleButton}">
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ToggleButton}">
+                    <Viewbox>
+                        <Border x:Name="Border" CornerRadius="10"
+                            Background="#FFFFFFFF"
+                            Width="40" Height="20">
+                            <Border.Effect>
+                                <DropShadowEffect ShadowDepth="0.5" Direction="0" Opacity="0.3" />
+                            </Border.Effect>
+                            <Ellipse x:Name="Ellipse" Fill="#FFFFFFFF" Stretch="Uniform"
+                                 Margin="2 1 2 1"
+                                 Stroke="Gray" StrokeThickness="0.2"
+                                 HorizontalAlignment="Stretch">
+                                <Ellipse.Effect>
+                                    <DropShadowEffect BlurRadius="10" ShadowDepth="1" Opacity="0.3" Direction="260" />
+                                </Ellipse.Effect>
+                            </Ellipse>
+                        </Border>
+                    </Viewbox>
+                    <ControlTemplate.Triggers>
+                        <EventTrigger RoutedEvent="Checked">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ColorAnimation Storyboard.TargetName="Border"
+                                                    Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)"
+                                                    To="{StaticResource DOrange}"
+                                                    Duration="0:0:0.1" />
+                                    <ThicknessAnimation Storyboard.TargetName="Ellipse"
+                                                        Storyboard.TargetProperty="Margin"
+                                                        To="20 1 2 1"
+                                                        Duration="0:0:0.1" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                        <EventTrigger RoutedEvent="Unchecked">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ColorAnimation Storyboard.TargetName="Border"
+                                                    Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)"
+                                                    To="White"
+                                                    Duration="0:0:0.1" />
+                                    <ThicknessAnimation Storyboard.TargetName="Ellipse"
+                                                        Storyboard.TargetProperty="Margin"
+                                                        To="2 1 2 1"
+                                                        Duration="0:0:0.1" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

@@ -1,0 +1,43 @@
+﻿<UserControl x:Class="WPFUI.Views.LoadView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:WPFUI.Views"
+             mc:Ignorable="d"
+             d:DesignHeight="600" d:DesignWidth="900" Background="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}">
+    <Grid>
+        <Grid.Background>
+            <RadialGradientBrush>
+                <GradientStop Color="#FF383737"/>
+                <GradientStop Color="#FF212121" Offset="0.855"/>
+            </RadialGradientBrush>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <!-- Control Grid -->
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10" ><Run Language="ru-ru" Text="Добро пожаловать"/></TextBlock>
+            <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Button x:Name="LoadGame" Content="Продолжить" Style="{StaticResource GenericButtonStyle}" Margin="0 0 10 0" Width="158" Click="LoadGame_Click_1" />
+                <Button x:Name="NewGame" Content="Новая игра" Style="{StaticResource GenericButtonStyle}" Width="160" Click="NewGame_Click" Background="#FFE80000" BorderBrush="#FFC82020" Foreground="#FFF51010" />
+            </StackPanel>
+        </Grid>
+        <!-- Version Info -->
+        <!-- Settings Button -->
+        <Button x:Name="Settings" Style="{StaticResource SettingsButtonStyle}" Grid.Row="2" Grid.Column="2"
+                HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="5" />
+    </Grid>
+</UserControl>

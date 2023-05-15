@@ -1,0 +1,8 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!--The base font for all text in the application-->
+    <FontFamily x:Key="Poppins-Regular">Assets/Fonts/Poppins-Regular.ttf #Poppins Regular</FontFamily>
+    <!--The base bold font for all the text in the application-->
+    <FontFamily x:Key="Poppins-Bold">Assets/Fonts/Poppins-Bold.ttf #Poppins Bold</FontFamily>
+</ResourceDictionary>
